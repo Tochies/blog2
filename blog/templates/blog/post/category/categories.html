@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load static  %}
+{% block content %}
+<div class="container">
+    <h1> Toktek Nigeria</h1>
+    <h4 class="h4 py-2">Here are some posts on {{ category_name }}</h4>
+    <div class="row ">
+    {% for post in instance %}
+        <div class="card col-lg-4 col-md-6 col-sm-12">
+            <h4 class="card-title mt-2"><a class="text-warning " href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+            <p class="card-meta text-muted ">{{ post.publish }} by {{ post.author.username }}</p>
+            <div class="card-image-top">
+            {% if post.featured_image %}
+                 <img class="img-fluid" src="{{ post.featured_image.url }}">
+            {% else %}
+            {% endif %}
+            </div>
+            <div class="card-body">
+                {{ post.content|safe| truncatewords:31|linebreaks }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+

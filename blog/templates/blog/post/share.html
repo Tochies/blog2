@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Share a post {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+    {% if sent %}
+        <div class="col-md-6">
+        <div class="alert">
+            <h3 class="text-success">E-mail successfully sent</h3>
+            <p>"{{ post.title }}" was successfully sent to {{ cd.to }}.</p>
+         </div>
+        </div>
+
+    {% else %}
+
+        <div class="col-md-6">
+        <h4 class="mb-2">Share "{{ post.title }}" by e-mail</h4>
+        <form class="needs-validation" action="." method="post">
+            <table border="1">
+            {{ form |crispy }}
+            </table>
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Send e-mail</button>
+        </form>
+        </div>
+
+    {% endif %}
+    </div>
+
+</div>
+{% endblock %}
+
+
+

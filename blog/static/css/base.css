@@ -1,0 +1,22 @@
+
+div.foot{
+backgound-color:blue;
+}
+
+div.clearfix {
+
+}
+
+div.container.bg-light {
+padding-top:5px; padding-bottom:1px; margin-top:5px;
+}
+
+l.list-group.list-inline li a  {color:red;}
+l.list-group.list-inline {list-display:inline;}
+
+p.float-none{text-align:center;}
+
+p.card-text{vetical-align:top; color:red;}
+
+div.pagination span.step-links{text-align:center;}
+
